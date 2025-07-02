@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATIS generator</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="../Important Stuff/functions.js" defer></script>
+    <script src="../Important Stuff/airportData.js" defer></script> 
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <h1 id="header">FAA format ATIS generator</h1>
+    <div class="startContainer">
+        <div class="values">
+
+            <div class="choice">
+                <label for="airport">Airport</label>
+                <input type="text", id="airport" placeholder="KCIA" maxlength="4" required>
+            </div>
+
+            <div class="choice">
+                <label for="atisLetter">Atis Info</label>
+                <input type="text", id="atisLetter" placeholder="A" maxlength="1" required>
+            </div>
+
+            <div class="choice">
+                <label for="time">time in zulu</label>
+                <input type="text", id="time" placeholder="1230" maxlength="4" required>
+            </div>
+
+            <div class="choice">
+                <label for="wind">Wind</label>
+                <input type="text", id="wind" placeholder="36001G90KT" required>
+            </div>
+
+            <div class="choice">
+                <label for="visibility">Visibility</label>
+                <input type="text", id="visibility" placeholder="10SM" required>
+            </div>
+
+            <div class="choice">
+                <label for="cloudLayers">Cloud layer(s)</label>
+                <input type="text", id="cloudLayers" placeholder="CLR" required>
+            </div>
+
+            <div class="choice">
+                <label for="temperature">Temperature/dew point</label>
+                <input type="text", id="temperature" placeholder="10/M01" required>
+            </div>
+
+            <div class="choice">
+                <label for="altimeter">altimeter</label>
+                <input type="text", id="altimeter" placeholder="29,91" required>
+            </div>
+
+            <div class="choice">
+                <label for="approachType">approach type</label>
+                <select id="approachType"  class="dropdown" required>
+                    <option value="" disabled selected>SELECT APPROACH</option>
+                    <option value="ILS">ILS</option>
+                    <option value="VISUAL">VISUAL</option>
+                    <option value="RNAV">RNAV</option>
+                    <option value="VOR">VOR</option>
+                </select>
+            </div>
+
+            <div class="choice">
+                <label for="arrivalRunway">Arrival runway</label>
+                <input type="text", id="arrivalRunway" placeholder="09" required>
+            </div>
+
+            <div class="choice">
+                <label for="departureRunway">Departure runway</label>
+                <input type="text", id="departureRunway" placeholder="09">
+            </div>
+
+            <div class="choice">
+                <label for="positionToContact">First contact position</label>
+                <select id="positionToContact" class="dropdown" required>
+                </select>
+            </div>
+
+            <div class="choice">
+                <label for="textPilotInstructions">Text Pilot Instructions</label>
+                <input type="text" id="textPilotInstructions" value="PING FOR EVERY TRANSMISSION" required>
+            </div>
+
+            <div class="choice">
+                <label for="pdc">PDC available?</label>
+                <input type="checkbox" id="pdc" value=flase>
+            </div>
+
+            <div class="choice">
+                <label for="serverCode">SERVER CODE</label>
+                <input type="text" id="serverCode" placeholder="Server code" maxlength="6" required>
+            </div>
+            
+
+        </div>
+        <div class="results">
+            <textarea name="atis" id="atisArea" readonly></textarea>
+            <button id="copyButton" onclick="checkRequiredFields()">Copy ATIS</button>
+        </div>
+    </div>
+    <div id="menuContainer">
+        <button class="menuButton" id="menuButton" onclick="location.href = '../index.html'">Back to menu</button>
+    </div>
+</body>
+</html>
