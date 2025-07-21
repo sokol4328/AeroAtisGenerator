@@ -157,7 +157,7 @@ async function getAudio() {
         qnh: qnh,
         transitionLevel: transitionLevel
     }
-    let res = await fetch("http://162.19.154.182:5000/generate-audio", {
+    let res = await fetch("https://atlas.itwithlyam.co.uk:5000/generate-audio", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
