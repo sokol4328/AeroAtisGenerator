@@ -87,9 +87,9 @@ document.getElementById("textPilotInstructions").addEventListener("input", funct
 });
 document.getElementById("pdc").addEventListener("change", function () {
     if (this.checked) {
-        pdcAvailable = "PDC AVAILABLE, VIA <#1168852137355264130>";
+        pdcAvailable = "PDC AVBL";
     } else {
-        pdcAvailable = "PDC NOT AVAILABLE";
+        pdcAvailable = "PDC NOT AVAIL";
     }
 
     updateAtis();
@@ -106,12 +106,12 @@ function updateAtis() {
 
     temperature = getSubstringBeforeSlash(temp);
     dewPoint = getSubstringAfterSlash(temp);
-    var atis = safeString(airportCode) + " ATIS " + safeString(atisLetter) + " " + safeString(time) + "z \n" +
-        "DEPARTURES " + safeString(departureRunway) + ". ARRIVALS " + safeString(arrivalRunway)  + "\n" +
+    var atis = safeString(airportCode) + " ATIS " + safeString(atisLetter) + " " + safeString(time) + "Z. \n" +
+        "DEPARTURES, RWY " + safeString(departureRunway) + ". ARRIVALS, RWY " + safeString(arrivalRunway)  + "\n" +
         "EXP " + safeString(expectApproach) + " APCH.\n" +
-        safeString(wind) + " VIS " + safeString(visibility) + " CLD " + safeString(cloudLayers) + " T" + safeString(temperature) + " DP" + safeString(dewPoint) + " QNH "+ safeString(qnh) + " HPA \n" +
-        "TEXT PILOTS " + safeString(textPilotInstructions) + "|" + pdcAvailable + "\n" +
+        safeString(wind) + " VIS " + safeString(visibility) + " CLD " + safeString(cloudLayers) + " T" + safeString(temperature) + " DP" + safeString(dewPoint) + " QNH "+ safeString(qnh) + " HPA= \n" +
         "SERVER CODE " + safeString(serverCode) + "\n" +
+        "CPDLC U/S. " + safeString(textPilotInstructions) + ". " + pdcAvailable + "\n" +
         "ACKNOWLEDGE INFO " + safeString(atisLetter) + " ON FIRST CTC WITH APP OR DEL";
     document.getElementById("atisArea").value = atis;
 }
