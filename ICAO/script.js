@@ -18,7 +18,7 @@ var expectApproach = "ILS";
 
 var airportName = "";
 
-var textPilotInstructions = "PING FOR EVERY TRANSMISSION";
+var textPilotInstructions = "NO TEXT PILOTS";
 var pdcAvailable = "PDC NOT AVAILABLE";
 
 var serverCode = "";
