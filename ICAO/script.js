@@ -19,7 +19,7 @@ var expectApproach = "ILS";
 var airportName = "";
 
 var textPilotInstructions = "NO TEXT PILOTS";
-var pdcAvailable = "PDC NOT AVAILABLE";
+var pdcAvailable = "PDC NOT AVAIL";
 
 var serverCode = "";
 
