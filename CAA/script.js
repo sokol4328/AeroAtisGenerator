@@ -139,5 +139,43 @@ function checkRequiredFields() {
         atisArea.select();
         document.execCommand("copy");
         alert("ATIS copied to clipboard!");
+        if (confirm("Also generate audio?")) getAudio();
+    }
+}
+
+async function getAudio() {
+    let payload = {
+        airport: airportCode,
+        letter: atisLetter,
+        time: time,
+        departureRunway: departureRunway,
+        arrivalRunway: arrivalRunway,
+        wind: wind,
+        visibility: visibility,
+        cloudLayer: cloudLayers,
+        temperatureDewPoint: temp,
+        qnh: qnh,
+        transitionLevel: transitionLevel
+    }
+    let res = await fetch("https://atlas.itwithlyam.co.uk:5000/generate-audio", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
+    });
+    if (res.ok) {
+        const blob = await res.blob();
+        const url = URL.createObjectURL(blob);
+        const audio = new Audio(url);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "atis-audio.wav";
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        if (confirm("Play audio?")) audio.play();
+    } else {
+        alert("Failed to generate audio.");
     }
 }
