@@ -4,8 +4,7 @@ html{
 
 #header{
     text-align: center;
-    padding: 20px;
-    padding-top: 75px;
+    padding-top: 1%;
     font-size: 30px;
     font-weight: bold;
     color: white;
@@ -22,8 +21,11 @@ html{
     grid-column: span 3;
     grid-template-columns: repeat(3, 1fr);
 
-    width: 1200px;
-    height: 350px;
+    width: 90%;
+    height: 50%;
+
+    max-width: 1150px;
+    max-height: 350px;
 
     overflow-x: auto;
     overflow-y: auto;
@@ -34,8 +36,6 @@ html{
     border-radius: 10px;
     border-color: darkgray;
     border-style: solid;
-
-    max-width: 1100px;
 }
 
 .choiceButton{
@@ -57,8 +57,16 @@ html{
 
 #discord{
     position: absolute;
-    width: 50px;
-    height: 50px;
+    width: 7%;
+    height: 15%;
+
+    max-width: 100px;
+    max-height: 100px;
+
+    min-height: 15px;
+    min-width: 15px;
+
+    aspect-ratio: 1;
 
     top: 50%;
     right: 92%;
