@@ -1656,7 +1656,7 @@ const airportData = {
     Oconia: [
         {
             name: "Clarence International",
-            icao: "KCIA",
+            icao: "KCLA",
             stations: [
                 {
                     type: "DEL",
