@@ -12,7 +12,7 @@ var cloudLayers = "";
 var temp = "";
 var qnh = "1013";
 
-var transitionLevel = "60";
+var transitionLevel = "75";
 
 var airportName = "";
 
@@ -157,7 +157,7 @@ async function getAudio() {
         qnh: qnh,
         transitionLevel: transitionLevel
     }
-    let res = await fetch("https://atlas.itwithlyam.co.uk:5000/generate-audio", {
+    let res = await fetch("https://itwithlyam.co.uk:5000/generate-audio", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
