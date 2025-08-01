@@ -12,7 +12,7 @@ var cloudLayers = "";
 var temp = "";
 var qnh = "1013";
 
-var transitionLevel = "60";
+var transitionLevel = "75";
 
 var airportName = "";
 
