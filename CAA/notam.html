@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATIS generator</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="../Important Stuff/functions.js" defer></script>
+    <script src="../Important Stuff/airportData.js" defer></script> 
+    <script src="../Important Stuff/caaNotamData.js" defer></script>
+    <script src="notams.js" defer></script>
+</head>
+<body>
+    <h1 id="header">CAA format NOTAM generator</h1>
+    <div style="text-align: center;">
+        <p style="color: white;">See also: <button class="menuButton" id="menuButton" onclick="location.href = 'index.html'">CAA ATIS generator</button></p>
+    </div>
+    <div class="startContainer">
+        <div class="values">
+
+            <div class="choice">
+                <label for="fir">FIR</label>
+                <select id="fir"  class="dropdown" required>
+                    <option value="EGAX" selected>Avalon</option>
+                    <option value="BIGG">Enoksen</option>
+                </select>
+            </div>
+
+            <div class="choice">
+                <label for="ad">AERODROME<br />(IF APPLICABLE)</label>
+                <input id="ad" name="ad">
+            </div>
+
+            <div class="choice">
+                <label for="category">CATEGORY</label>
+                <select id="category"  class="dropdown" required>
+                    <option value="" disabled selected>SELECT CATEGORY</option>
+                </select>
+            </div>
+
+            <div class="choice">
+                <label for="subject">SUBJECT</label>
+                <select id="subject"  class="dropdown" required>
+                    <option value="" disabled selected>SELECT CAT BEFORE SUB</option>
+                </select>
+            </div>
+
+            <div class="choice">
+                <label for="condition">CONDITION</label>
+                <select id="condition"  class="dropdown" required>
+                    <option value="" disabled selected>SELECT CONDITION</option>
+                </select>
+            </div>
+
+            <div class="choice">
+                <label for="flightrules">TRAFFIC</label>
+                <div>
+                    <input type="checkbox" id="ifr" name="flightrules" value="IFR" style="display: inline-block; width: auto; margin-right: 4px;">
+                    <label for="ifr" style="display: inline-block; margin-right: 12px;">IFR</label><br />
+                    <input type="checkbox" id="vfr" name="flightrules" value="VFR" style="display: inline-block; width: auto; margin-right: 4px;">
+                    <label for="vfr" style="display: inline-block;">VFR</label>
+                </div>
+            </div>
+
+            <div class="choice">
+                <label for="purpose">PURPOSE</label>
+                <select id="purpose" class="dropdown" required multiple>
+                    <option value="N">Immediate attention</option>
+                    <option value="B">PIB entry</option>
+                    <option value="O">Significant</option>
+                    <option value="M">Misc</option>
+                </select>
+            </div>
+
+            <div class="choice">
+                <label for="scope">SCOPE</label>
+                <select id="scope" class="dropdown" required>
+                    <option value="" disabled selected>SELECT SCOPE</option>
+                    <option value="A">Aerodrome</option>
+                    <option value="E">En-route</option>
+                    <option value="W">Nav warning</option>
+                </select>
+            </div>
+
+            <div class="choice">
+                <label for="base">BASE FL</label>
+                <input type="number" value="0" id="base" name="base" min="0" step="5" required>
+            </div>
+
+            <div class="choice">
+                <label for="ceiling">CEILING FL</label>
+                <input type="number" value="100" id="ceiling" name="ceiling" min="0" step="5" required>
+            </div>
+
+            <div class="choice">
+                <label for="radius">AFFECTED RADIUS (nm)</label>
+                <input type="number" value="5" id="radius" name="radius" min="1" step="1" required>
+            </div>
+
+            <div class="choice">
+                <label for="start">START</label>
+                <input type="datetime-local" id="start" name="start" required>
+            </div>
+
+            <div class="choice">
+                <label for="end">END</label>
+                <input type="datetime-local" id="end" name="end">
+            </div>
+
+            <div class="choice">
+                <label for="notamText">NOTAM TEXT</label>
+                <textarea name="notamText" id="notamText" placeholder="AVALON CONTROL FREQUENCY CHANGED TO 127.825..." required></textarea>
+            </div>
+            
+        </div>
+        <div class="results">
+            <textarea name="atis" id="atisArea" readonly></textarea>
+            <button id="copyButton" onclick="checkRequiredFields()">Copy NOTAM</button>
+        </div>
+    </div>
+    <div id="menuContainer">
+        <button class="menuButton" id="menuButton" onclick="location.href = '../index.html'">Back to menu</button>
+    </div>
+</body>
+</html>
