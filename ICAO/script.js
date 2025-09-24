@@ -89,7 +89,7 @@ document.getElementById("pdc").addEventListener("change", function () {
     if (this.checked) {
         pdcAvailable = "PDC AVBL";
     } else {
-        pdcAvailable = "PDC NOT AVAIL";
+        pdcAvailable = "PDC NOT AVBL";
     }
 
     updateAtis();
